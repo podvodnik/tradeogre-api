@@ -102,7 +102,7 @@ TradeOgre.prototype.getOrder = function (uuid, callback) {
 	/**
 	 * @param uuid
 	 */
-	this._get('/account/order', { uuid: uuid }, callback)
+	this._post('/account/order', { uuid: uuid }, callback)
 }
 TradeOgre.prototype.getOrders = function (market, callback) {
 	/**
