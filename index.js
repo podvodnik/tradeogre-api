@@ -98,6 +98,12 @@ TradeOgre.prototype.cancelOrder = function (uuid, callback) {
 	 */
 	this._post('/order/cancel', { uuid: uuid }, callback)
 }
+TradeOgre.prototype.getOrder = function (uuid, callback) {
+	/**
+	 * @param uuid
+	 */
+	this._get('/account/order', { uuid: uuid }, callback)
+}
 TradeOgre.prototype.getOrders = function (market, callback) {
 	/**
 	 * @param market
