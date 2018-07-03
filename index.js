@@ -34,6 +34,20 @@ var TradeOgre = function (key, secret) {
 			callback
 		)
 	}
+	self._getprivate = function (path, options, callback) {
+		var qs = ''
+		for (var o in options) {
+			qs += '/' + options[o]
+		}
+		return request(
+			{
+				method: "GET",
+				url: self._privateUrl + path + qs,
+                                json: true
+			},
+			callback
+		)
+	}
 	self._post = function (path, options, callback) {
 		return request(
 			{
@@ -102,7 +116,7 @@ TradeOgre.prototype.getOrder = function (uuid, callback) {
 	/**
 	 * @param uuid
 	 */
-	this._post('/account/order', { uuid: uuid }, callback)
+	this._getprivate('/account/order', { uuid: uuid }, callback)
 }
 TradeOgre.prototype.getOrders = function (market, callback) {
 	/**
