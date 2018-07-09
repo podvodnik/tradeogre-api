@@ -1,4 +1,4 @@
-var request = require('request')
+var request = require('request');
 
 var TradeOgre = function (key, secret) {
 
@@ -29,7 +29,8 @@ var TradeOgre = function (key, secret) {
 		return request(
 			{
 				method: "GET",
-				url: self._publicUrl + path + qs
+				url: self._publicUrl + path + qs,
+                                timeout: 2000
 			},
 			callback
 		)
@@ -43,7 +44,8 @@ var TradeOgre = function (key, secret) {
 			{
 				method: "GET",
 				url: self._privateUrl + path + qs,
-                                json: true
+                                json: true,
+                                timeout: 2000
 			},
 			callback
 		)
@@ -54,7 +56,8 @@ var TradeOgre = function (key, secret) {
 				method: "POST",
 				url: self._privateUrl + path,
 				form: options,
-				json: true
+				json: true,
+                                timeout: 2000
 			},
 			callback
 		)
