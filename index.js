@@ -1,7 +1,8 @@
 var cloudscraper = require('cloudscraper');
 
-var TradeOgre = function (key, secret) {
+var TradeOgre = function (key, secret, family) {
 
+        family = family || 4;
 	var self = this;
 
 	self.VERSION = '1.1.4';
@@ -32,7 +33,8 @@ var TradeOgre = function (key, secret) {
 				method: "GET",
 				url: self._publicUrl + path + qs,
                                 timeout: 2000,
-                                headers: {'User-Agent': self._userAgent}
+                                headers: {'User-Agent': self._userAgent},
+                                family: family
 			},
 			callback
 		)
@@ -48,7 +50,8 @@ var TradeOgre = function (key, secret) {
 				url: self._privateUrl + path + qs,
                                 json: true,
                                 timeout: 2000,
-                                headers: {'User-Agent': self._userAgent}
+                                headers: {'User-Agent': self._userAgent},
+                                family: family
 			},
 			callback
 		)
@@ -61,7 +64,8 @@ var TradeOgre = function (key, secret) {
 				form: options,
 				json: true,
                                 timeout: 2000,
-                                headers: {'User-Agent': self._userAgent}
+                                headers: {'User-Agent': self._userAgent},
+                                family: family
 			},
 			callback
 		)
