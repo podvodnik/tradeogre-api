@@ -2,16 +2,17 @@ var cloudscraper = require('cloudscraper');
 
 var TradeOgre = function (key, secret) {
 
-	var self = this
+	var self = this;
 
-	self.VERSION = '1.1.4'
+	self.VERSION = '1.1.4';
 
-	self._key = key
-	self._secret = secret
+	self._key = key;
+	self._secret = secret;
 
-	self._endpoint = 'tradeogre.com/api/v1'
-	self._publicUrl = 'https://' + self._endpoint
-	self._privateUrl = 'https://' + self._key + ":" + self._secret + "@" + self._endpoint
+	self._endpoint = 'tradeogre.com/api/v1';
+	self._publicUrl = 'https://' + self._endpoint;
+	self._privateUrl = 'https://' + self._key + ":" + self._secret + "@" + self._endpoint;
+        self._userAgent = 'Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0';
 
 	self._request = function (method, path, options, callback) {
 		if (method === 'GET') {
@@ -30,7 +31,8 @@ var TradeOgre = function (key, secret) {
 			{
 				method: "GET",
 				url: self._publicUrl + path + qs,
-                                timeout: 2000
+                                timeout: 2000,
+                                headers: {'User-Agent': self._userAgent}
 			},
 			callback
 		)
@@ -45,7 +47,8 @@ var TradeOgre = function (key, secret) {
 				method: "GET",
 				url: self._privateUrl + path + qs,
                                 json: true,
-                                timeout: 2000
+                                timeout: 2000,
+                                headers: {'User-Agent': self._userAgent}
 			},
 			callback
 		)
@@ -57,7 +60,8 @@ var TradeOgre = function (key, secret) {
 				url: self._privateUrl + path,
 				form: options,
 				json: true,
-                                timeout: 2000
+                                timeout: 2000,
+                                headers: {'User-Agent': self._userAgent}
 			},
 			callback
 		)
