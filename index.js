@@ -1,4 +1,4 @@
-var request = require('request');
+var cloudscraper = require('cloudscraper');
 
 var TradeOgre = function (key, secret) {
 
@@ -26,7 +26,7 @@ var TradeOgre = function (key, secret) {
 		for (var o in options) {
 			qs += '/' + options[o]
 		}
-		return request(
+		return cloudscraper.request(
 			{
 				method: "GET",
 				url: self._publicUrl + path + qs,
@@ -40,7 +40,7 @@ var TradeOgre = function (key, secret) {
 		for (var o in options) {
 			qs += '/' + options[o]
 		}
-		return request(
+		return cloudscraper.request(
 			{
 				method: "GET",
 				url: self._privateUrl + path + qs,
@@ -51,7 +51,7 @@ var TradeOgre = function (key, secret) {
 		)
 	}
 	self._post = function (path, options, callback) {
-		return request(
+		return cloudscraper.request(
 			{
 				method: "POST",
 				url: self._privateUrl + path,
