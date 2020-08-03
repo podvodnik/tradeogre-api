@@ -16,6 +16,9 @@
     "Bitcoin",
     "btc"
   ],
+  "dependencies": {
+    "request": "^2.88.2"
+  },
   "author": "Andrea Zitti <andrea.zitti@outlook.com>",
   "license": "GPL-2.0",
   "bugs": {
