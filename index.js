@@ -26,6 +26,7 @@ var TradeOgre = function (key, secret) {
 			{
 				method: "GET",
 				url: path,
+				json: true
 			},
 			callback
 		)
